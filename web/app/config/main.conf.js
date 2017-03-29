@@ -4,7 +4,7 @@ let config = {};
 
 config.web = {
     
-    port: process.env.FRONT_PORT || 9006,
+    port: process.env.FRONT_PORT || 9076,
     sessionKey: '6ketaq3cgrggdfgdfgdfgdfgo315rk9',
     cookieOptions: {
         ttl: 365 * 24 * 60 * 60 * 1000, // expires a year from today
@@ -75,7 +75,7 @@ config.web = {
     },
     connections: [
         {
-            port: process.env.CMS_WEB_PORT || 9006,
+            port: process.env.CMS_WEB_PORT || 9076,
             labels: ['web'],
             routes: {
                 cors: {
@@ -88,7 +88,7 @@ config.web = {
             }
         },
         {
-            port: process.env.CMS_ADMIN_PORT || 9002,
+            port: process.env.CMS_ADMIN_PORT || 9072,
             labels: ['admin'],
             routes: {
                 cors: {
@@ -101,7 +101,7 @@ config.web = {
             }
         },
         {
-            port: process.env.CMS_API_PORT || 9001,
+            port: process.env.CMS_API_PORT || 9071,
             labels: 'api',
             routes: {
                 cors: {
@@ -132,11 +132,11 @@ config.web = {
         },
         settings: {
             services: {
-                userApi: 'http://localhost:9001/v1',
-                contactApi: 'http://localhost:9001/v1',
-                socketApi: 'http://localhost:9001/v1',
-                uploadApi: 'http://localhost:9001/v1',
-                webUrl: 'http://localhost:9006/v1'
+                userApi: 'http://localhost:9071/v1',
+                contactApi: 'http://localhost:9071/v1',
+                socketApi: 'http://localhost:9071/v1',
+                uploadApi: 'http://localhost:9071/v1',
+                webUrl: 'http://localhost:9076/v1'
             }
 
         }
