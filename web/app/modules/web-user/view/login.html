@@ -1,0 +1,32 @@
+<div class="page-header">
+    <h1>Login</h1>
+</div>
+<div class="row" ng-controller="AuthController">
+    <div class="col-sm-6">
+        <form id="userLogin" name="loginForm" method="POST" autocomplete="off">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" ng-model="email" placeholder="Email" required/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" ng-model="password" placeholder="Password" required
+                />
+            </div>
+            <div class="form-group">
+                <a href="/forgot">Forgot password ? </a><br/> I am a new member ? <a href="/register">Sign up here</a>
+            </div>
+            <div class="form-group">
+                <button type="button" ng-click="login()" class="btn btn-success">Login</button>
+                <button type="button" ng-click="loginFB()" class="btn btn-success">Login with Facebook</button>
+                <button type="button" ng-click="loginGG()" class="btn btn-success">Login with Google</button>
+            </div>
+            <div ng-cloak ng-show="errors && errors.length">
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div ng-repeat="message in errors"><span data-ng-bind="message"></span></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

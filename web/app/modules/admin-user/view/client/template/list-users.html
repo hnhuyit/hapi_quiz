@@ -1,0 +1,98 @@
+<section data-ng-controller="UsersController" data-ng-init="find()">
+    <section class="content-header">
+        <h1>Users</h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">List Users</h3>
+                        <div class="pull-right">
+                            <a class="btn btn-block btn-primary" data-ui-sref="createUser">New</a>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="box-tools">
+                            <div class="col-md-offset-3 col-md-6">
+                                <div class="row">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="keyword">Keyword</label>
+                                            <div class="controls col-sm-10">
+                                                <input type="text" name="keyword" data-ng-model="search.keyword" id="keyword" class="form-control" placeholder="Search" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="roles">Role</label>
+                                            <div class="controls col-sm-10">
+                                                <select class="form-control" data-ng-model="search.role" id="role" ng-options="item.value as item.name for item in userRoles" required>
+                                                    <option value="">all role</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="status">Status</label>
+                                            <div class="controls col-sm-10">
+                                                <select class="form-control" ng-init="status = 1" data-ng-model="search.status" id="status" ng-options="item.value as item.name for item in statuses" required>
+                                                    <option value="">all status</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <a class="btn btn-default" ng-click="search()">Filter</a>
+                                                <a class="btn btn-default" ng-click="reset()">Reset</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>&nbsp;</div>
+                        <table id="table-list" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Created on</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="user in users">
+                                    <td><a data-ui-sref="editUser({userId: user._id})">{{user._id}}</a></td>
+                                    <td><a data-ui-sref="editUser({userId: user._id})">{{user.name}}</a></td>
+                                    <td>{{user.email}}</td>
+                                    <td><span class="label label-success" ng-if="user.status == 1">Publish </span><span class="label label-danger" ng-if="user.status == 0">Unpublish </span></td>
+                                    <td>{{user.created | date:'medium'}}</td>
+                                    <td>
+                                        <a data-ui-sref="editUser({userId: user._id})" title="Edit"><i class="glyphicon glyphicon-edit"></i></a> &nbsp; &nbsp;
+                                        <a data-ui-sref="viewUser({userId: user._id})" title="Delete">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ul boundary-links="true" items-per-page="itemsPerPage" max-size="numberVisiblePages" uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm pull-right" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="alert alert-warning text-center" data-ng-hide="!users.$resolved || users.length">
+                    No users yet, why don't you <a data-ui-sref="createUser">create one</a>?
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

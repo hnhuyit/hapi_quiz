@@ -1,0 +1,21 @@
+{
+	//String
+        "name": {"type": "String", "trim": true, "index": true, "required": true},
+
+        ////Description
+        "desc": {"type": "String","textarea": 1},
+
+        //user
+        "user_id": {"type": "Schema.ObjectId", "required": true},
+
+        ///Slug
+        "slug": {"type": "String","slug": "#name"},
+
+        ///Status
+        "status": {"type": "Number","default": 1},
+
+
+        ///Luu va cap nhat
+        "created_at": {"type": "Date"},
+        "updated_at": {"type": "Date"}
+}

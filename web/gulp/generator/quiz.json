@@ -1,0 +1,44 @@
+{
+	//String
+        "name": {"type": "String", "trim": true, "index": true, "required": true},
+        
+        ////Description
+        "description": {"type": "String","editor": 1},
+
+        //Start
+        "start_date": {"type": "Date"},
+
+        //End
+        "end_date": {"type": "Date"},
+
+        //Duration
+        "duration": {"type": "Number"},
+
+        //Maximum Attempts
+        "maximum_attempts": {"type": "Number"},
+
+        //Pass Percentage
+        "pass_percentage": {"type": "Number"},
+
+        //Group
+        "group_id": {"type": "Schema.ObjectId", "required": true},
+
+        //view answer
+        "view_answer": {"type": "Number", "required": true},
+
+        //with login
+        "with_login": {"type": "Number", "required": true},
+
+        //number of question
+        "number_of_question": {"type": "Number", "required": true},
+
+        ///Slug
+        "slug": {"type": "String","slug": "#name"},
+
+        ///Status
+        "status": {"type": "Number","default": 1},
+
+        ///Luu va cap nhat
+        "created_at": {"type": "Date"},
+        "updated_at": {"type": "Date"}
+}

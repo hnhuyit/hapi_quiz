@@ -1,0 +1,27 @@
+<div class="page-header">
+     <h1>List Post</h1> 
+</div>
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+        {{#each posts}}
+        <div class="media">
+            <div class="media-left">
+                <a href="{{postDetailLink this}}">
+                    {{#if thumb}}
+                <img width="200px" class="media-object" src="{{thumb}}"> {{else}}
+                <img width="200px" class="media-object" src="/assets/images/default-image.png"> {{/if}}
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{title}}</h4>
+                <p>{{teaser}}</p>
+                 <p><a href="{{postDetailLink this}}">View detail»</a></p>
+            </div>
+        </div>
+        {{/each}} {{{paginator}}}
+    </div>
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+        {{> web/partials/post_sidebar}}
+    </div>
+
+</div>
