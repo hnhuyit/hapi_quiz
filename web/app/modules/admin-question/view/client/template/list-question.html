@@ -30,7 +30,6 @@
                                     <th>ID</th>
                                     
                                     <th>Name</th>
-                                    
                                     <th>Slug</th>
                                     
                                     <th>Question Type</th>
@@ -109,7 +108,7 @@
                                     
                                     
                                         
-                                    <td><span class="label label-success" ng-if="question.status == 1">Publish </span><span class="label label-danger" ng-if="question.status == 0">Unpublish </span></td>
+                                    <td status="{{question.status}}"></td>
                                     
                                     
                                     
