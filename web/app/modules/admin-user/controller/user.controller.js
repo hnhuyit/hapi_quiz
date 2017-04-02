@@ -95,9 +95,12 @@ exports.save = {
             name: Joi.string().required().description('Name'),
             email: Joi.string().email().required().description('Email'),
             password: Joi.string().description('Password'),
+            phone: Joi.string().description('Phone'),
             cfpassword: Joi.string(),
             status: Joi.number().integer().min(0).max(1),
-            roles: Joi.any().description('Roles')
+            roles: Joi.any().description('Roles'),
+            group_id: Joi.any().description('Group'),
+            image: Joi.string().description('image')
         }
     }
 }
@@ -139,13 +142,17 @@ exports.update = {
     },
     validate: {
         payload: {
-            _id: Joi.string().description('MongoID'),
             name: Joi.string().required().description('Name'),
             email: Joi.string().email().required().description('Email'),
             password: Joi.string().description('Password'),
+            phone: Joi.string().allow('').description('Phone'),
             cfpassword: Joi.string(),
             status: Joi.number().integer().min(0).max(1),
-            roles: Joi.any().description('Roles')
+            roles: Joi.any().description('Roles'),
+            group_id: Joi.any().description('Group'),
+            image: Joi.string().allow('').description('image'),
+            _id: Joi.string().description('MongoID'),
+            modified: Joi.date().allow('').description('Modified')
 
         }
     }

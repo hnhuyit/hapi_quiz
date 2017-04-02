@@ -1,26 +1,17 @@
 {
-	//String
         "name": {"type": "String", "trim": true, "index": true, "required": true},
 
-        //ObjectId
         "user_id": {"type": "Schema.ObjectId"},
 
-        //question_id
         "question_id": {"type": "Schema.ObjectId"},
 
-        //option_id
         "option_id": {"type": "Schema.ObjectId"},
 
-        ///score
         "score": {"type": "Number"},
 
-        ///Slug
         "slug": {"type": "String","slug": "#name"},
 
-        ///Status
         "status": {"type": "Number","default": 1},
-
-        ///Luu va cap nhat
-        "created_at": {"type": "Date"},
-        "updated_at": {"type": "Date"}
+        "created": {"type": "Date"},
+        "modified": {"type": "Date"}
 }

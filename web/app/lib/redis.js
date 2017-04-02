@@ -13,7 +13,7 @@ exports.register = function (server, options, next) {
         console.log("REDIS Error " + err);
     });
     server.on('stop', function () { // only one server.on('stop') listener
-        console.log("REDIS Stop ");
+        console.log("REDIS STOP ");
         client.end(true);
         client.quit();
     });
@@ -23,12 +23,12 @@ exports.register = function (server, options, next) {
 
     });
     client.on("connect", function () {
-        console.log("REDIS Connect ");
+        console.log("REDIS CONNECT ");
     });
     server.decorate('server', 'redis', client);
     server.decorate('request', 'redis', client);
     server.expose('client', client);
-    console.log('Register Redis');
+    console.log('REGISTER REDIS');
     return next();
 
 

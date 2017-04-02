@@ -23,7 +23,7 @@ exports.register = function (server, options, next) {
         path: '/app/modules/{module}/view/client/{file*}',
         handler: function (request, reply) {
             let file = BASE_PATH + `/app/modules/${request.params.module}/view/client/${request.params.file}`;
-            console.log('File: ' + file);
+            //console.log('File: ' + file);
             reply.file(file);
         },
         config: {

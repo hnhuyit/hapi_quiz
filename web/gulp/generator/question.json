@@ -1,39 +1,29 @@
 {
-        //String
         "name": {"type": "String", "trim": true, "index": true, "required": true},
         
-        //Question Type
-        "question_type": {"type": "Schema.ObjectId", "required": true},
+        "slug": {"type": "String","slug": "#name"},
+        
+        "question_type": {"type": "String", "required": true},
 
-        //category_id
-        "category_id": {"type": "Schema.ObjectId", "required": true},
+        "chapter_id": {"type": "Schema.ObjectId", "required": true},
 
-        //subject_id
         "subject_id": {"type": "Schema.ObjectId", "required": true},
 
-	//level
         "level": {"type": "String", "required": true},
 
-        ////Description
         "description": {"type": "String","editor": 1},
 
-        //no time corrected
         "no_time_corrected": {"type": "Number"},
 
-        //no time incorrected
         "no_time_incorrected": {"type": "Number"},
 
-        //no time unattempted
         "no_time_unattempted": {"type": "Number"},
 
-        
-        ///Slug
-        "slug": {"type": "String","slug": "#name"},
+        "options": {"type": "Schema.ObjectId", "required": true},
 
-        ///Status
-        "status": {"type": "Number","default": 1},
 
-        ///Luu va cap nhat
-        "created_at": {"type": "Date"},
-        "updated_at": {"type": "Date"}
+        "status": {"type": "Number", "default": 1},
+
+        "created": {"type": "Date"},
+        "modified": {"type": "Date"}
 }

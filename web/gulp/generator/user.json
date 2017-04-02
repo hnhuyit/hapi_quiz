@@ -1,36 +1,22 @@
 {
-	//String
         "name": {"type": "String", "trim": true, "index": true, "required": true},
         
-        ///email
         "email": {"type": "String", "required": true},
 
-        ///student_code
         "student_code": {"type": "String", "required": true},
 
-        ///password
         "password": {"type": "String", "required": true},
-
-        ///password
         "phone": {"type": "String"},
-
-        ///role
         "role": {"type": "String", "required": true},
 
-        //group_id
         "group_id": {"type": "Schema.ObjectId"},
         
 
-        ///Image
         "image": {"type": "String", "upload": true},
-
-        ///Slug
         "slug": {"type": "String","slug": "#name"},
 
-        ///Status
         "status": {"type": "Number","default": 1},
 
-        ///Luu va cap nhat
-        "created_at": {"type": "Date"},
-        "updated_at": {"type": "Date"}
+        "created": {"type": "Date"},
+        "modified": {"type": "Date"}
 }

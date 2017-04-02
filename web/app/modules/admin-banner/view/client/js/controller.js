@@ -80,9 +80,9 @@ angular.module('banners').controller('BannersController', ['$scope', '$statePara
                 category: this.category,
                 position: this.position,
             });
-            console.log(banner.category, 'po');
+            // console.log(banner.category, 'po');
             if (banner.category === undefined) {
-                $scope.categories = Categories.query(function(resp) {
+                $scope.categories = Categories.query({type: 'banner'}, function(resp) {
                     banner.category = [];
                     for (var i = 0; i < resp.items.length; i++)
                         banner.category.push(resp.items[i]._id);
@@ -132,7 +132,7 @@ angular.module('banners').controller('BannersController', ['$scope', '$statePara
             delete banner.__v;
             delete banner.created;
             if (banner.category === undefined) {
-                $scope.categories = Categories.query(function(resp) {
+                $scope.categories = Categories.query({type: 'banner'}, function(resp) {
                     banner.category = [];
                     for (var i = 0; i < resp.items.length; i++)
                         banner.category.push(resp.items[i]._id);

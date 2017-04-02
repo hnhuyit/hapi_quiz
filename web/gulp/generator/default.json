@@ -1,29 +1,19 @@
 {
-	//String
         "string": {"type": "String", "trim": true, "index": true, "required": true},
         
-        ///Slug
         "slug": {"type": "String","slug": "#title"},
 
-        ///Status
         "status": {"type": "Number","default": 1},
 
-        //Date
         "date": {"type": "Date"},
-
-        ////Description
         "desc": {"type": "String","textarea": 1},
 
-        ///Image
         "image": {"type": "String", "upload": true},
 
-        //Text large
         "body": {"type": "String","editor": 1},
 
-        //ObjectId
         "ObjectId": {"type": "Schema.ObjectId"},
 
-        ///Luu va cap nhat
-        "created_at": {"type": "Date"},
-        "updated_at": {"type": "Date"}
+        "created": {"type": "Date"},
+        "modified": {"type": "Date"}
 }

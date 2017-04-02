@@ -9,7 +9,7 @@ const Pack = require(global.BASE_PATH + '/package');
 const Glob = require("glob");
 
 module.exports = function (server) {
-     const config = server.configManager;
+    const config = server.configManager;
     server.register([
         {
             register: require('inert')

@@ -44,6 +44,10 @@ var UserSchema = new Schema({
 		// default: '',
 		validate: [validateLocalStrategyPassword, 'Password should be longer']
 	},
+    phone: {
+        type: String,
+        default: '',
+    },
 	activeToken: {
 		type: String,
 		default: '',
@@ -61,10 +65,18 @@ var UserSchema = new Schema({
 	roles: {
 		type: [{
 			type: String,
-			enum: ['user', 'admin']
+			enum: ['user', 'admin', 'student', 'teacher']
 		}],
 		default: ['user']
 	},
+    group_id: {
+        type: Schema.ObjectId,
+        ref: 'Group',
+    },
+    image: {
+        type: String,
+        default: '',
+    },
 	status: {
 		type: Number,
 		default: 1

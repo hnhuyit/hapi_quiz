@@ -36,8 +36,8 @@ config.web = {
     adminassets: {
         css: [
             'public/assets/lib/AdminLTE/bootstrap/css/bootstrap.min.css',
-            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css',
-            'https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css',
+            'public/assets/lib/components-font-awesome/css/font-awesome.min.css',
+            'public/assets/lib/Ionicons/css/ionicons.min.css',
             'public/assets/lib/AdminLTE/plugins/datatables/dataTables.bootstrap.css',
             'public/assets/lib/AdminLTE/dist/css/skins/skin-blue.min.css',
             'public/assets/lib/AdminLTE/plugins/select2/select2.min.css',
@@ -45,7 +45,7 @@ config.web = {
             'app/modules/admin-*/view/client/style/*.css',
         ],
         js: [
-            'https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js',
+            'public/assets/lib/ckeditor/ckeditor.js',
             'public/assets/lib/jquery/dist/jquery.min.js',
             'public/assets/lib/bootstrap/dist/js/bootstrap.min.js',
             'public/assets/lib/AdminLTE/dist/js/app.min.js',

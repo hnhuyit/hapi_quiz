@@ -8,7 +8,6 @@ angular.module('auth').controller('AuthenticationController', ['$scope', '$http'
 			var data = $scope.credentials;
 			data.scope = 'admin';
 			$http.post($window.settings.services.userApi + '/api/user/login', data).success(function (response) {
-				console.log(response);
 				if (response.token) {
 					$window.location.href = '/';
 				}

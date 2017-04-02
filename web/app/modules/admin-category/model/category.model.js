@@ -39,7 +39,7 @@ var CategorySchema = new Schema({
     },
     type: {
         type: String,
-        enum: ['product', 'post', 'banner']
+        enum: ['post', 'banner']
     },
     status: {
         type: Number,

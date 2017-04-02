@@ -29,8 +29,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
-                                    <th>Subtitle</th>
-                                    <th>Image</th>
+                                    <th>Des</th>
+                                    <!-- <th>Image</th> -->
                                     <th>Position</th>
                                     <th>Status</th>
                                     <th>Created on</th>
@@ -43,8 +43,8 @@
                                     <td><a data-ui-sref="viewBanner({bannerId: banner._id})">{{banner._id}}</a></td>
                                     <td>{{banner.title}}
                                         <br/> {{banner.link}}</td>
-                                    <td>{{banner.subtitle}}</td>
-                                    <td><img ng-if="banner.image" ng-src="{{webUrl + banner.image}}" style="max-width: 100px" /></td>
+                                    <td>{{banner.description}}</td>
+                                    <!-- <td><img ng-if="banner.image" ng-src="{{webUrl + banner.image}}" style="max-width: 100px" /></td> -->
                                     <td>{{banner.position}}</td>
                                     <td><span class="label label-success" ng-if="banner.status == 1">Publish </span><span class="label label-danger" ng-if="banner.status == 0">Unpublish </span></td>
                                     <td>{{banner.created | date:'medium'}}</td>

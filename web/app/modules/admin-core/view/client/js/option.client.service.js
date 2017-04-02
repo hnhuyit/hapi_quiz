@@ -10,7 +10,7 @@ angular.module('core').factory("Option", function ($rootScope) {
 
     var yesno = [{name: "Yes", value: 1}, {'name': "No", value: 0}];
 
-    var roles = [{name: 'Admin', value: 'admin'}, {name: 'User', value: 'user'}];
+    var roles = [{name: 'Admin', value: 'admin'}, {name: 'User', value: 'user'}, {name: 'Student', value: 'student'}, {name: 'Teacher', value: 'teacher'}];
 
     var genders = [{name: 'male', value: 'male'}, {name: 'female', value: 'female'}];
 
@@ -19,6 +19,10 @@ angular.module('core').factory("Option", function ($rootScope) {
     var bannerPositions = [{name: 'home', value: 'home'}, {name: 'right', value: 'right'}];
 
     var adsPositions = [{name: 'top', value: 'top'}, {name: 'right', value: 'right'}, {name: 'home', value: 'home'}];
+
+    var typeQuestions = [{name: 'Loai 1', value: 'loai_1'}, {name: 'Loai 2', value: 'loai_2'}, {name: 'Loai 3', value: 'loai_3'}];
+
+    var levels = [{name: 'De', value: 'de'}, {name: 'Trung Binh', value: 'Trung Binh'}, {name: 'Kho', value: 'kho'}];
 
     return {
         getStatus: function () {
@@ -45,6 +49,12 @@ angular.module('core').factory("Option", function ($rootScope) {
         },
         getAdsPositions: function () {
             return adsPositions;
+        },
+        getTypeQuestions: function () {
+            return typeQuestions;
+        },
+        getLevels: function () {
+            return levels;
         },
 
 

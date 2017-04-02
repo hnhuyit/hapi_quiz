@@ -21,7 +21,6 @@
     "socket.io": "^1.4.8",
     "angular-cookies": "^1.5.8",
     "socket.io-client": "^1.4.8",
-    
     "AdminLTE": "admin-lte#~2.3.6",
     "angular-resource": "^1.5.8",
     "angular-ui-router": "^0.3.1",
@@ -36,6 +35,9 @@
     "jquery": "^3.1.0",
     "angular-messages": "^1.5.8",
     "angular-input-masks": "^2.4.0",
-    "bootstrap-ui-datetime-picker": "^2.4.3"
+    "bootstrap-ui-datetime-picker": "^2.4.3",
+    "Ionicons": "ionicons#^2.0.1",
+    "components-font-awesome": "^4.7.0",
+    "ckeditor": "^4.6.2"
   }
 }

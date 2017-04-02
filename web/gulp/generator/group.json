@@ -1,23 +1,10 @@
 {
-	//String
         "name": {"type": "String", "trim": true, "index": true, "required": true},
-        
-        ///Slug
         "slug": {"type": "String","slug": "#name"},
-
-        ///Status
         "status": {"type": "Number","default": 1},
-
-        ///valid_for_days
         "valid_for_days": {"type": "Number","default": 0},
-
-        ///Price
-        "price": {"type": "String", "upload": true},
-
-        ////Description
+        "price": {"type": "Number", "default": 0},
         "description": {"type": "String","textarea": 1},
-
-        ///Luu va cap nhat
-        "created_at": {"type": "Date"},
-        "updated_at": {"type": "Date"}
+        "created": {"type": "Date"},
+        "modified": {"type": "Date"}
 }

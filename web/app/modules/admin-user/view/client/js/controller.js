@@ -1,8 +1,8 @@
 'use strict';
 
 // Users controller
-angular.module('users').controller('UsersController', ['$scope', '$log', '$stateParams', '$location', 'Authentication', 'Users', 'Option',
-    function($scope, $log, $stateParams, $location, Authentication, Users, Option) {
+angular.module('users').controller('UsersController', ['$scope', '$log', '$stateParams', '$location', 'Authentication', 'Users', 'Option', 'Group',
+    function($scope, $log, $stateParams, $location, Authentication, Users, Option, Group) {
         $scope.authentication = Authentication;
         if (!Authentication.user.name) {
             $location.path('signin');
@@ -13,6 +13,7 @@ angular.module('users').controller('UsersController', ['$scope', '$log', '$state
 
         $scope.statuses = Option.getStatus();
         $scope.userRoles = Option.getRoles();
+        Group.query(function(data){$scope.groupList = data.items});
 
         // Create new user
         $scope.create = function() {
@@ -21,12 +22,18 @@ angular.module('users').controller('UsersController', ['$scope', '$log', '$state
                 email: this.email,
                 password: this.password,
                 cfpassword: this.cfpassword,
-                status: this.status,
-                roles: this.roles
+                phone: this.phone,
+                roles: this.roles,
+                group_id: this.group_id,
+                image: this.image,
+                status: this.status
             });
+
+            console.log(user);
 
             // Redirect after save
             user.$save(function(response) {
+                console.log(response);
                 if (response._id) {
                     $location.path('users/' + response._id);
                     $scope.name = '';

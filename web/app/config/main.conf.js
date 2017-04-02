@@ -16,9 +16,9 @@ config.web = {
         strictHeader: true   // don't allow violations of RFC 6265
     },
     paging: {
-        defaultPageSize: 3,
+        defaultPageSize: 7,
         numberVisiblePages: 5,
-        itemsPerPage: 3
+        itemsPerPage: 7
     },
     db: {
         uri: 'mongodb://localhost/db_bzcms',

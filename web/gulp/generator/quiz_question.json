@@ -1,23 +1,16 @@
 {
-	//String
         "name": {"type": "String", "trim": true, "index": true, "required": true},
 
-        //quiz_id
         "quiz_id": {"type": "Schema.ObjectId"},
 
-        //question_id
         "question_id": {"type": "Schema.ObjectId"},
 
-        ///Slug
         "slug": {"type": "String","slug": "#name"},
 
-        ///Status
         "status": {"type": "Number","default": 1},
 
-        ////Description
         "desc": {"type": "String","textarea": 1},
 
-        ///Luu va cap nhat
         "created_at": {"type": "Date"},
         "updated_at": {"type": "Date"}
 }

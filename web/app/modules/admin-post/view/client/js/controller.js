@@ -209,6 +209,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
             Posts.query(options, function(data) {
                 $scope.items = data.items;
+                console.log($scope.items);
                 $scope.totalItems = data.totalItems;
                 $scope.itemsPerPage = data.itemsPerPage;
                 $scope.numberVisiblePages = data.numberVisiblePages;

@@ -110,7 +110,7 @@ exports.update = {
             link: Joi.any().description('link'),
             image: Joi.any().description('Image'),
             description: Joi.any().description('Description'),
-            product_id: Joi.string().required().description('ProductID'),
+            // product_id: Joi.string().required().description('ProductID'),
             category: Joi.any().description('Category'),
             status: Joi.any().description('Status'),
             position: Joi.any().description('Position'),

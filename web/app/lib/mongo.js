@@ -7,7 +7,7 @@ exports.register = function (server, options, next) {
     mongoose.connect(config.get('web.db.uri'));
     mongoose.Promise = require('bluebird');
     require('mongoose-pagination');
-    console.log('Register Mongo');
+    console.log('REGISTER MONGO');
     next();
 
 }
