@@ -24,7 +24,7 @@ angular.module('question').controller('QuestionsController', ['$scope', '$stateP
             $location.path('question');
         }
         //CRUD
-        console.log(typeof $('#optionsRadios1').checked);
+        // console.log(typeof $('#optionsRadios1').checked);
         // if( ==false) {console.log(1);}else {console.log(0);}
         // console.log();
         // $('#optionsRadios1').change(function() {
@@ -76,6 +76,24 @@ angular.module('question').controller('QuestionsController', ['$scope', '$stateP
 
         $scope.update = function() {
             var question = $scope.question;
+                question.options = [
+                    {
+                        question_option: $scope.option1,
+                        score: $('#optionsRadios1').checked ? 1 : 0
+                    },
+                    {
+                        question_option: $scope.option2,
+                        score: $('#optionsRadios2').checked ? 1 : 0
+                    },
+                    {
+                        question_option: $scope.option3,
+                        score: $('#optionsRadios3').checked ? 1 : 0
+                    },
+                    {
+                        question_option: $scope.option4,
+                        score: $('#optionsRadios4').checked ? 1 : 0
+                    }
+                ];
             question.$update(function() {
                 $scope.gotoList();
 

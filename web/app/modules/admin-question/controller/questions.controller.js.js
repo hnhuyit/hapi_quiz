@@ -88,11 +88,11 @@ exports.save = {
             // no_time_corrected: Joi.number().allow('').description('No Time Corrected'),
             // no_time_incorrected: Joi.number().allow('').description('No Time Incorrected'),
             // no_time_unattempted: Joi.number().allow('').description('No Time Unattempted'),
-            options: Joi.any().keys({
+            options: Joi.array().items(Joi.object().keys({
                 question_option: Joi.string(),
-                question_option_match: Joi.string(),
+                question_option_match: Joi.string().allow(''),
                 score: Joi.number()
-            }),
+            })).description('List Options'),
             status: Joi.number().allow('').description('Status'),
             created: Joi.date().allow('').description('Created'),
             modified: Joi.date().allow('').description('Modified'),
@@ -132,14 +132,14 @@ exports.update = {
             chapter_id: Joi.any().allow('').description('Chapter'),
             level: Joi.string().allow('').description('Level'),
             description: Joi.string().allow('').description('Description'),
-            // no_time_corrected: Joi.number().allow('').description('No Time Corrected'),
-            // no_time_incorrected: Joi.number().allow('').description('No Time Incorrected'),
-            // no_time_unattempted: Joi.number().allow('').description('No Time Unattempted'),
-            options: Joi.any().keys({
+            no_time_corrected: Joi.number().allow('').description('No Time Corrected'),
+            no_time_incorrected: Joi.number().allow('').description('No Time Incorrected'),
+            no_time_unattempted: Joi.number().allow('').description('No Time Unattempted'),
+            options: Joi.array().items(Joi.object().keys({
                 question_option: Joi.string(),
                 question_option_match: Joi.string(),
                 score: Joi.number()
-            }),
+            })).description('List Options'),
             status: Joi.number().allow('').description('Status'),
             created: Joi.date().allow('').description('Created'),
             modified: Joi.date().allow('').description('Modified'),
