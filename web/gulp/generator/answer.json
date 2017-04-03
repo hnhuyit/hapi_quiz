@@ -1,15 +1,9 @@
 {
-        "name": {"type": "String", "trim": true, "index": true, "required": true},
-
         "user_id": {"type": "Schema.ObjectId"},
 
-        "question_id": {"type": "Schema.ObjectId"},
+        "quiz_id": {"type": "Schema.ObjectId"},
 
-        "option_id": {"type": "Schema.ObjectId"},
-
-        "score": {"type": "Number"},
-
-        "slug": {"type": "String","slug": "#name"},
+        "user_answer": {"type": "Schema.ObjectId"},
 
         "status": {"type": "Number","default": 1},
         "created": {"type": "Date"},

@@ -3,9 +3,9 @@
 ApplicationConfiguration.registerModule('subject');
 angular.module('subject').run(['Menus',
     function(Menus) {
-        Menus.addMenuItem('topbar', 'Subjects', 'subject', 'dropdown', '/subject(/create)?');
-        Menus.addSubMenuItem('topbar', 'subject', 'List Subjects', 'subject');
-        Menus.addSubMenuItem('topbar', 'subject', 'New Subject', 'subject/create');
+        // Menus.addMenuItem('topbar', 'Subjects', 'subject', 'dropdown', '/subject(/create)?');
+        // Menus.addSubMenuItem('topbar', 'subject', 'List Subjects', 'subject');
+        // Menus.addSubMenuItem('topbar', 'subject', 'New Subject', 'subject/create');
     }
 ]).config(['$stateProvider',
     function($stateProvider) {

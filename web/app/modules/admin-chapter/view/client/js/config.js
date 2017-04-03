@@ -3,9 +3,9 @@
 ApplicationConfiguration.registerModule('chapter');
 angular.module('chapter').run(['Menus',
     function(Menus) {
-        Menus.addMenuItem('topbar', 'Chapters', 'chapter', 'dropdown', '/chapter(/create)?');
-        Menus.addSubMenuItem('topbar', 'chapter', 'List Chapters', 'chapter');
-        Menus.addSubMenuItem('topbar', 'chapter', 'New Chapter', 'chapter/create');
+        // Menus.addMenuItem('topbar', 'Chapters', 'chapter', 'dropdown', '/chapter(/create)?');
+        // Menus.addSubMenuItem('topbar', 'chapter', 'List Chapters', 'chapter');
+        // Menus.addSubMenuItem('topbar', 'chapter', 'New Chapter', 'chapter/create');
     }
 ]).config(['$stateProvider',
     function($stateProvider) {

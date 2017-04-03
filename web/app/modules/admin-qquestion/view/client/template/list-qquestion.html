@@ -1,0 +1,100 @@
+<section data-ng-controller="QquestionsController" data-ng-init="find()">
+    <section class="content-header">
+        <h1>Qquestions</h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">List Qquestions</h3>
+                        <div class="pull-right">
+                            <a class="btn btn-block btn-primary" data-ui-sref="createQquestion">New</a>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="box-tools">
+                            <div class="input-group" style="width: 150px;">
+                                <input type="text" name="query" data-ng-model="query" class="form-control input-sm pull-right" placeholder="Search" />
+                                <div class="input-group-btn">
+                                    <button ng-click="find()" class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>&nbsp;</div>
+                        <table id="table-list" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    
+                                    <th>Quiz Id</th>
+                                    
+                                    <th>Question Id</th>
+                                    
+                                    <th>Status</th>
+                                    
+                                    <th>Desc</th>
+                                    
+                                    <th>Created At</th>
+                                    
+                                    <th>Updated At</th>
+                                    
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="qquestion in items">
+                                    <td><a data-ui-sref="viewQquestion({itemId: qquestion._id})">{{qquestion._id}}</a></td>
+                                    
+                                    
+                                    <td>{{qquestion.quiz_id}}</td>
+                                    
+                                    
+                                    
+                                    <td>{{qquestion.question_id}}</td>
+                                    
+                                    
+                                        
+                                    <td><span class="label label-success" ng-if="qquestion.status == 1">Publish </span><span class="label label-danger" ng-if="qquestion.status == 0">Unpublish </span></td>
+                                    
+                                    
+                                    
+                                    <td>{{qquestion.desc}}</td>
+                                    
+                                    
+                                    
+                                    <td>{{qquestion.created_at | date:'medium'}}</td>
+                                    
+                                    
+                                    
+                                    <td>{{qquestion.updated_at | date:'medium'}}</td>
+                                    
+                                      
+                                    <td>
+                                        <a data-ui-sref="editQquestion({itemId: qquestion._id})" title="Edit"><i class="glyphicon glyphicon-edit"></i></a> &nbsp; &nbsp;
+                                        <a data-ui-sref="viewQquestion({itemId: qquestion._id})" title="Delete">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ul boundary-links="true" items-per-page="itemsPerPage" max-size="numberVisiblePages" uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="find()" class="pagination-sm pull-right" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" ng-disabled="blocked"></ul>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="alert alert-warning text-center" data-ng-hide="!items.$resolved || items.length">
+                    There is no item found, why don't you <a data-ui-sref="createQquestion">create one</a>?
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

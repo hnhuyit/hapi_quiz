@@ -3,9 +3,9 @@
 ApplicationConfiguration.registerModule('group');
 angular.module('group').run(['Menus',
     function(Menus) {
-        Menus.addMenuItem('topbar', 'Groups', 'group', 'dropdown', '/group(/create)?');
-        Menus.addSubMenuItem('topbar', 'group', 'List Groups', 'group');
-        Menus.addSubMenuItem('topbar', 'group', 'New Group', 'group/create');
+        // Menus.addMenuItem('topbar', 'Groups', 'group', 'dropdown', '/group(/create)?');
+        // Menus.addSubMenuItem('topbar', 'group', 'List Groups', 'group');
+        // Menus.addSubMenuItem('topbar', 'group', 'New Group', 'group/create');
     }
 ]).config(['$stateProvider',
     function($stateProvider) {

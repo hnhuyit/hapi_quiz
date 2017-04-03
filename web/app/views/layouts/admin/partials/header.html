@@ -9,26 +9,74 @@
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav" ng-show="authentication.user.name">
-          <li class="dropdown user user-menu">
+
+          <!-- <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span class="hidden-xs" data-ng-bind="authentication.user.name"></span>
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" data-ng-controller="AuthenticationController">
-              <!--<li>
+              <li>
                 <a href="/#!/settings/profile">Edit Profile</a>
               </li>
               <li data-ng-show="authentication.user.provider === 'local'">
                 <a href="/#!/settings/password">Change Password</a>
               </li>
               <li class="divider"></li>
-              -->
+              
               
               <li>
                 <a data-ng-click="signout()">Signout</a>
               </li>
             </ul>
+          </li> -->
+
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+              <img src="/files/avatar.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs" data-ng-bind="authentication.user.name"></span>
+            </a>
+            <ul class="dropdown-menu" data-ng-controller="AuthenticationController">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="/files/avatar.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  Huy Hoang - Web Developer
+                  <!-- <small>Member since Nov. 2012</small> -->
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-6 text-center">
+                    <a data-ng-click="changeAvatar()" class="btn btn-default btn-flat">Change Avatar</a>
+                  </div>
+                  <div class="col-xs-6 text-center">
+                    <a data-ng-click="changePassword()" class="btn btn-default btn-flat">Change Password</a>
+                  </div>
+                  <!-- <div class="col-xs-4 text-center">
+                  
+                    <a data-ng-click="signout()">Friends</a>
+                  </div> -->
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a data-ng-click="signout()" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
           </li>
+
+
+
+
         </ul>
       </div>
     </nav>

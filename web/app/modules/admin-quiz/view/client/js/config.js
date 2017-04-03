@@ -3,9 +3,9 @@
 ApplicationConfiguration.registerModule('quiz');
 angular.module('quiz').run(['Menus',
     function(Menus) {
-        Menus.addMenuItem('topbar', 'Quizzes', 'quiz', 'dropdown', '/quiz(/create)?');
-        Menus.addSubMenuItem('topbar', 'quiz', 'List Quizzes', 'quiz');
-        Menus.addSubMenuItem('topbar', 'quiz', 'New Quiz', 'quiz/create');
+        // Menus.addMenuItem('topbar', 'Quizzes', 'quiz', 'dropdown', '/quiz(/create)?');
+        // Menus.addSubMenuItem('topbar', 'quiz', 'List Quizzes', 'quiz');
+        // Menus.addSubMenuItem('topbar', 'quiz', 'New Quiz', 'quiz/create');
     }
 ]).config(['$stateProvider',
     function($stateProvider) {

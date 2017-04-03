@@ -137,13 +137,13 @@ exports.login = {
         let {email, password, scope} = request.payload;
         let promise = User.findOne({ email: email }).exec();
         promise.then(user => {
-            if (!user || (user && user.status != 1)) {
-                return reply(Boom.unauthorized("Incorrect email or password"));
-            }
-            //check scope if exist
-            if (scope && !user.roles.includes(scope)) {
-                return reply(Boom.unauthorized("Incorrect email or password"));
-            }
+            // if (!user || (user && user.status != 1)) {
+            //     return reply(Boom.unauthorized("Incorrect email or password"));
+            // }
+            // //check scope if exist
+            // if (scope && !user.roles.includes(scope)) {
+            //     return reply(Boom.unauthorized("Incorrect email or password"));
+            // }
             let auth = request.server.plugins['api-user'].auth;
             auth.login(email, password, user).then(jwtToken => {
                 reply({ token: jwtToken }).header("Authorization", jwtToken).state("token", jwtToken, cookieOptions);

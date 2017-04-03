@@ -1,0 +1,38 @@
+<section data-ng-controller="QquestionsController" data-ng-init="findOne()">
+    <section class="content-header">
+        <h1>Qquestions</h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box box-primary">
+                    <div class="box-body">
+                        <h3 data-ng-bind="qquestion._id"></h3>
+                        
+                                    <div><strong>Quiz Id: </strong> {{qquestion.quiz_id}}</div>
+                         
+                                    <div><strong>Question Id: </strong> {{qquestion.question_id}}</div>
+                         
+                                    <div><strong>Status: </strong> {{qquestion.status}}</div>
+                         
+                                    <div><strong>Desc: </strong> {{qquestion.desc}}</div>
+                         
+                                    <div><strong>Created At: </strong> {{qquestion.created_at}}</div>
+                         
+                                    <div><strong>Updated At: </strong> {{qquestion.updated_at}}</div>
+                         
+                    </div>
+                    <div class="box-footer">
+                        <a class="btn btn-primary" data-ui-sref="editQquestion({itemId: qquestion._id})">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </a>
+                        <a class="btn btn-primary" data-ng-click="remove();">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

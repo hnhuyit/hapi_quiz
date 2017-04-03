@@ -1,6 +1,6 @@
 exports.home = {
     handler: function (request, reply) {
-        request.log('info','ddd');
+        // request.log('info','ddd');
         let meta = {
             title: 'Home',
             description: ''

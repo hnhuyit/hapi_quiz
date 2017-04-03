@@ -3,9 +3,9 @@
 ApplicationConfiguration.registerModule('question');
 angular.module('question').run(['Menus',
     function(Menus) {
-        Menus.addMenuItem('topbar', 'Questions', 'question', 'dropdown', '/question(/create)?');
-        Menus.addSubMenuItem('topbar', 'question', 'List Questions', 'question');
-        Menus.addSubMenuItem('topbar', 'question', 'New Question', 'question/create');
+        // Menus.addMenuItem('topbar', 'Questions', 'question', 'dropdown', '/question(/create)?');
+        // Menus.addSubMenuItem('topbar', 'question', 'List Questions', 'question');
+        // Menus.addSubMenuItem('topbar', 'question', 'New Question', 'question/create');
     }
 ]).config(['$stateProvider',
     function($stateProvider) {

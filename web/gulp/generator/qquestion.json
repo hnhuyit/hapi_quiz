@@ -1,11 +1,7 @@
 {
-        "name": {"type": "String", "trim": true, "index": true, "required": true},
-
         "quiz_id": {"type": "Schema.ObjectId"},
 
         "question_id": {"type": "Schema.ObjectId"},
-
-        "slug": {"type": "String","slug": "#name"},
 
         "status": {"type": "Number","default": 1},
 
