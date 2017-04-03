@@ -1,3 +1,5 @@
+"use strict";
+
 //send email 
 
 exports.sendRegisterEmail = function (request, to, context) {

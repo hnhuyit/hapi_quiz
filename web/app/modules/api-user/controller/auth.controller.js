@@ -49,7 +49,7 @@ exports.register = {
     ],
     handler: function (request, reply) {
         if (request.pre.userByEmail) {
-            return reply(Boom.badRequest('Email taken'));
+            return reply(Boom.badRequest('Email is exist'));
         }
         if (request.payload.password != request.payload.cfpassword) {
             return reply(Boom.badRequest('Confirm new password does not match'));
@@ -65,11 +65,13 @@ exports.register = {
             user.activeToken = token;
             const promise = user.save();
             return promise;
-        }).then(user => {
-            // send email welcome
-            UserEmail.sendRegisterEmail(request, { name: user.name, address: user.email }, user);
-            return user;
-        }).then(user => {
+        })
+        // .then(user => {
+        //     // send email welcome
+        //     UserEmail.sendRegisterEmail(request, { name: user.name, address: user.email }, user);
+        //     return user;
+        // })
+        .then(user => {
             user = user.toObject();
             delete user.password;
 
@@ -78,7 +80,8 @@ exports.register = {
             return reply(Boom.badRequest(ErrorHandler.getErrorMessage(err)));
         });
 
-    },
+    }
+    ,
     description: 'User Register',
     tags: ['api'],
     plugins: {

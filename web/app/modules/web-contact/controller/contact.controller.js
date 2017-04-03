@@ -1,3 +1,5 @@
+"use strict";
+
 exports.contact = {
     handler: function(request, reply) {
         let meta = {

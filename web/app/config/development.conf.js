@@ -19,18 +19,27 @@ config.web = {
         callbackURL: '/auth/google/callback'
     },
     assets: {
+        css: [
+            'public/assets/lib/AdminLTE/bootstrap/css/bootstrap.min.css',
+            'public/assets/lib/components-font-awesome/css/font-awesome.min.css',
+            'public/assets/lib/Ionicons/css/ionicons.min.css',
+            'public/assets/lib/AdminLTE/plugins/datatables/dataTables.bootstrap.css',
+            'public/assets/lib/AdminLTE/dist/css/skins/skin-blue.min.css',
+            'public/assets/lib/AdminLTE/plugins/select2/select2.min.css',
+            'public/assets/lib/AdminLTE/dist/css/AdminLTE.min.css',
+            // 'app/modules/web-*/view/client/style/*.css',
+            'public/assets/css/styles.css',
+        ],
         js: [
+            'public/assets/lib/ckeditor/ckeditor.js',
             'public/assets/lib/jquery/dist/jquery.min.js',
             'public/assets/lib/bootstrap/dist/js/bootstrap.min.js',
+            'public/assets/lib/AdminLTE/dist/js/app.min.js',
             'public/assets/lib/angular/angular.min.js',
             'public/assets/lib/angular-cookies/angular-cookies.min.js',
             'public/assets/lib/socket.io-client/socket.io.js',
             'app/modules/web-*/view/client/js/*.js',
             'public/assets/js/app.js',
-        ],
-        css: [
-            'public/assets/lib/bootstrap/dist/css/bootstrap.min.css',
-            'public/assets/css/styles.css',
         ]
     },
     adminassets: {
@@ -49,7 +58,7 @@ config.web = {
             'public/assets/lib/jquery/dist/jquery.min.js',
             'public/assets/lib/bootstrap/dist/js/bootstrap.min.js',
             'public/assets/lib/AdminLTE/dist/js/app.min.js',
-            'public/assets/lib/angular/angular.js',
+            'public/assets/lib/angular/angular.min.js',
             'public/assets/lib/angular-resource/angular-resource.js',
             'public/assets/lib/angular-animate/angular-animate.js',
             'public/assets/lib/angular-ui-router/release/angular-ui-router.js',

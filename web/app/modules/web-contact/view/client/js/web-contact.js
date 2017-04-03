@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('Contact', [])
     .service("ContactService", ['$http', '$window', function ($http, $window) {
         return {

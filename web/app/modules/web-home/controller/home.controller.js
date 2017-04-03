@@ -1,3 +1,5 @@
+"use strict";
+
 exports.home = {
     handler: function (request, reply) {
         // request.log('info','ddd');

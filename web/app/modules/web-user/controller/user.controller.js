@@ -1,3 +1,5 @@
+"use strict";
+
 exports.login = {
     handler: function(request, reply) {
         let meta = {

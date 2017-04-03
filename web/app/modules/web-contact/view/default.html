@@ -1,5 +1,9 @@
-<div class="page-header">
+<!-- Content Header (Page header) -->
+<div class="content-header">
     <h1>Contact us</h1>
+</div>
+<!-- Main content -->
+<div class="content body">
     <div class="row" ng-controller="ContactController">
         <div class="col-sm-6">
             <form id="contactForm" name="contactForm" method="POST" action="/api/contact">
@@ -23,7 +27,7 @@
 
                 <br class="clearfix" />
                 <span ng-show="contactForm.email.$dirty && contactForm.email.$invalid" class="ng-cloak" ng-cloak>
-					<span ng-show="contactForm.email.$error.required">Email is required.</span>
+                    <span ng-show="contactForm.email.$error.required">Email is required.</span>
                 <span ng-show="contactForm.email.$error.email">Invalid email address.</span>
                 </span>
                 <p ng-cloak ng-show="contactSuccess">
@@ -35,3 +39,4 @@
             </form>
         </div>
     </div>
+</div>

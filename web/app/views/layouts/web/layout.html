@@ -14,13 +14,16 @@
         <link rel="stylesheet" href="{{this}}" />
     {{/each}}
 </head>
-<body ng-app="myapp">
-    {{> web/partials/header}}
-    <div class="container">
-        {{{ content }}}
+<body ng-app="myapp" class="ng-cloak skin-blue sidebar-mini">
+    <div class="wrapper">
+        {{> web/partials/header}}
+        {{> web/partials/menu-left}}
+        <div class="content-wrapper">
+            {{{ content }}}
+        </div>
+        <!-- /container -->
+        {{> web/partials/footer}}
     </div>
-    <!-- /container -->
-    {{> web/partials/footer}}
 </body>
 
 </html>

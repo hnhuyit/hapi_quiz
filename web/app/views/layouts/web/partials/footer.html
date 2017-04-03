@@ -1,17 +1,23 @@
-<div class="container">
-    <hr/>
-    <ul class="list-inline">
+
+<footer class="main-footer">
+    <!-- <ul class="pull-left list-inline">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About Us</a></li>
         <li><a href="/term">Terms and Conditions</a></li>
         <li><a href="/help">Help</a></li>
         <li><a href="/support">Support</a></li>
         <li><a href="/faq">FAQs</a></li>
-    </ul>
-</div>
+    </ul> -->
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 1.0
+    </div>
+    <strong>Copyright © 2017 Test Online.</strong>
+</footer>
+
 {{#if isDevelopment}}
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 {{/if}}
 {{#each assets.js}}
     <script src="{{this}}"></script>
 {{/each}}
+

@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('core')
 	.directive('status', function () {
 		return {

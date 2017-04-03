@@ -1,3 +1,5 @@
+"use strict";
+
 var mongoose = require('mongoose'),
     Promise = require('bluebird'),
     crypto = require('crypto'),

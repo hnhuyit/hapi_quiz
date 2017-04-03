@@ -1,45 +1,60 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-            <a class="navbar-brand">Web</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="{{postListLink}}">News</a></li>
-                <li><a href="{{contactLink}}">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right" ng-controller="AuthController">
+<header class="main-header">
+    <a href="/#!/" class="logo">
+      <span class="logo-mini">TO</span>
+      <span class="logo-lg">TEST ONLINE</span>
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="{{postListLink}}">News</a></li>
+            <li><a href="{{aboutLink}}">About</a></li>
+            <li><a href="{{contactLink}}">Contact</a></li>
+            <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                  <img src="/files/avatar.jpg" class="user-image" alt="User Image">
+                  <span class="hidden-xs"></span>
+                </a>
+                <ul class="dropdown-menu" data-ng-controller="AuthController">
                 {{#if credentials.uid}}
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/account">My Account</a></li>
-                        <li><a href="/changepassword">Change Password</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Change Avatar</a></li>
-                        <li><a href="#">Settings</a></li>
-
-                    </ul>
-                </li>
-                
-                <li><a ng-click="logout()" href="#">Logout</a></li>
+                    <!-- User image -->
+                    <li class="user-header">
+                        <img src="/files/avatar.jpg" class="img-circle" alt="User Image">
+                        <p>
+                          Huy Hoang - Web Developer
+                        </p>
+                    </li>
+                    <!-- Menu Body -->
+                    <li class="user-body">
+                        <div class="row">
+                          <div class="col-xs-6 text-center">
+                            <a href="/changeavatar" class="btn btn-default btn-flat">Change Avatar</a>
+                          </div>
+                          <div class="col-xs-6 text-center">
+                            <a href="/changepassword" class="btn btn-default btn-flat">Change Password</a>
+                          </div>
+                        </div>
+                        <!-- /.row -->
+                    </li>
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                        <div class="pull-left">
+                          <a href="/account" class="btn btn-default btn-flat">Profile</a>
+                        </div>
+                        <div class="pull-right">
+                          <a data-ng-click="logout()" class="btn btn-default btn-flat">Sign out</a>
+                        </div>
+                    </li>
                 {{else}}
-                <li><a href="/register">Register</a></li>
-                <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
                 {{/if}}
-                <li ng-controller="NotifyController"><a href="javascript:;">Message <span class="badge" ng-bind="totalMessage">0</span></a></li>
-
-            </ul>
-
-        </div>
-        <!--/.nav-collapse -->
-    </div>
-</nav>
+                </ul>
+            </li>
+        </ul>
+      </div>
+    </nav>
+</header>

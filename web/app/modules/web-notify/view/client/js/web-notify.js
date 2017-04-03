@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('Common', [])
     .service("Socket", ['$http', '$cookies', '$window', function ($http, $cookies, $window) {
         var jwt = $cookies.get('token');

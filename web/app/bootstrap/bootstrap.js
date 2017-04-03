@@ -29,7 +29,7 @@ module.exports = function (server) {
                     'version': Pack.version,
                 }
             }
-        },
+        gulp lint},
         {
             register: require('../lib/redis.js')
         },
@@ -91,7 +91,7 @@ module.exports = function (server) {
                     modules.push(require(Path.resolve(`${item}`)));
                 });
 
-                if(modules.length){
+                if(modules.length) {
                     let options = { select: [name] };
                     if(name=='api'){
                         options.routes = {prefix: '/v1/api'};

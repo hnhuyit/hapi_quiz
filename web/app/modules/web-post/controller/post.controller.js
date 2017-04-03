@@ -1,3 +1,5 @@
+"use strict";
+
 const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 const Category = mongoose.model('Category');

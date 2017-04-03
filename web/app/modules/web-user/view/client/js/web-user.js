@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('Auth', []).service('AuthService', [
   '$http',
   '$window',
@@ -46,10 +48,15 @@ angular.module('Auth', []).service('AuthService', [
           password: this.password,
           cfpassword: this.cfpassword
         };
+
+        // console.log('Login:', data);
         AuthService.register(data).then(function (res) {
           $scope.registerSuccess = true;
-          window.location.href = '/login';
+          setTimeout(function(){
+            window.location.href = '/login';
+          }, 2000);
         }).catch(function (res) {
+          console.log(res);
           $scope.errors = [res.data.message];
         });
       }

@@ -67,7 +67,7 @@ var UserSchema = new Schema({
 			type: String,
 			enum: ['user', 'admin', 'student', 'teacher']
 		}],
-		default: ['user']
+		default: ['admin']
 	},
     group_id: {
         type: Schema.ObjectId,
@@ -109,4 +109,12 @@ UserSchema.methods = {
 
 }
 
+UserSchema.pre('update', function(next) {
+    this.modified = Date.now();
+    next();
+});
+UserSchema.pre('save', function(next) {
+    this.modified = Date.now();
+    next();
+});
 module.exports = mongoose.model('User', UserSchema);
