@@ -19,7 +19,7 @@ exports.register = function (server, options, next) {
             let session;
             if (result) {
                 session = JSON.parse(result);
-                console.log(session);
+                // console.log(session);
             }else{ 
                 return callback(rediserror, false);
             }

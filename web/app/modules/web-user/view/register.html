@@ -31,18 +31,17 @@
                     <span ng-show="registerForm.email.$error.required">Email is required.</span>
                     <span ng-show="registerForm.email.$error.email">Invalid email address.</span>
                 </span>
-                <div ng-cloak ng-show="registerSuccess">
+                <!-- <div ng-cloak ng-show="registerSuccess">
                     <div class="callout callout-success">
                         <h4>Registration successful, please login.!</h4>
                     </div>
-                </div>
+                </div> -->
                 <div ng-cloak ng-show="errors && errors.length">
                     <div class="alert alert-warning alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <div ng-repeat="message in errors"><span data-ng-bind="message"></span></div>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>

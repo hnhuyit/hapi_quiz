@@ -38,6 +38,7 @@
     "bootstrap-ui-datetime-picker": "^2.4.3",
     "Ionicons": "ionicons#^2.0.1",
     "components-font-awesome": "^4.7.0",
-    "ckeditor": "^4.6.2"
+    "ckeditor": "^4.6.2",
+    "angular-toastr": "^2.1.1"
   }
 }

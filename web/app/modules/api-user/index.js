@@ -20,9 +20,19 @@ exports.register = function (server, options, next) {
         config: AuthController.login,
     });
     server.route({
+        method: 'POST',
+        path: '/user/loginTeacher',
+        config: AuthController.loginTeacher,
+    });
+    server.route({
         method: ['GET'],
         path: '/user/logout',
         config: AuthController.logout,
+    });
+    server.route({
+        method: ['GET'],
+        path: '/user/logoutTeacher',
+        config: AuthController.logoutTeacher,
     });
     server.route({
         method: ['POST'],

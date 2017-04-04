@@ -29,7 +29,7 @@ module.exports = function (server) {
                     'version': Pack.version,
                 }
             }
-        gulp lint},
+        },
         {
             register: require('../lib/redis.js')
         },

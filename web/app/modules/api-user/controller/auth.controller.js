@@ -63,6 +63,8 @@ exports.register = {
             user.password = hash;
             const token = auth.getRandomString(20);
             user.activeToken = token;
+
+            console.log(user);
             const promise = user.save();
             return promise;
         })
@@ -96,6 +98,7 @@ exports.register = {
             email: Joi.string().email().required().description('Email'),
             password: Joi.string().min(5).required().description('Password'),
             cfpassword: Joi.string().min(5).required().description('Confirm Password'),
+            rules: Joi.array().description('Rules'),
         }
     }
 }
@@ -140,16 +143,16 @@ exports.login = {
         let {email, password, scope} = request.payload;
         let promise = User.findOne({ email: email }).exec();
         promise.then(user => {
-            // if (!user || (user && user.status != 1)) {
-            //     return reply(Boom.unauthorized("Incorrect email or password"));
-            // }
-            // //check scope if exist
-            // if (scope && !user.roles.includes(scope)) {
-            //     return reply(Boom.unauthorized("Incorrect email or password"));
-            // }
+            if (!user || (user && user.status != 1)) {
+                return reply(Boom.unauthorized("Incorrect email or password"));
+            }
+            //check scope if exist
+            if (scope && !user.roles.includes(scope)) {
+                return reply(Boom.unauthorized("Incorrect email or password"));
+            }
             let auth = request.server.plugins['api-user'].auth;
             auth.login(email, password, user).then(jwtToken => {
-                reply({ token: jwtToken }).header("Authorization", jwtToken).state("token", jwtToken, cookieOptions);
+                reply({ token: jwtToken}).header("Authorization", jwtToken).state("token", jwtToken, cookieOptions);
             }).catch(err => {
                 request.log(['error', 'login'], err);
                 return reply(Boom.unauthorized("Incorrect email or password"));
@@ -162,6 +165,51 @@ exports.login = {
 
     },
     description: 'User Login',
+    tags: ['api'],
+    plugins: {
+        'hapi-swagger': {
+            responses: { '400': { 'description': 'Bad Request' } },
+            payloadType: 'form'
+        }
+    },
+    validate: {
+        payload: {
+            email: Joi.string().email().required().description('Email'),
+            password: Joi.string().required().description('Password'),
+            scope: Joi.string().description('Scope'),
+        }
+    }
+
+}
+exports.loginTeacher = {
+    handler: function (request, reply) {
+        let cookieOptions = request.server.configManager.get('web.cookieOptions');
+        let {email, password, scope} = request.payload;
+        let promise = User.findOne({ email: email }).exec();
+
+        promise.then(user => {
+            if (!user || (user && user.status != 1)) {
+                return reply(Boom.unauthorized("Incorrect email or password"));
+            }
+            //check scope if exist
+            if (scope != 'teacher') {
+                return reply(Boom.unauthorized("Incorrect email or password"));
+            }
+            let auth = request.server.plugins['api-user'].auth;
+            auth.login(email, password, user).then(jwtToken => {
+                reply({ tokenUser: jwtToken }).header("Authorization", jwtToken).state("tokenUser", jwtToken, cookieOptions);
+            }).catch(err => {
+                request.log(['error', 'login'], err);
+                return reply(Boom.unauthorized("Incorrect email or password"));
+            });
+
+        }).catch(err => {
+            return reply(Boom.badRequest(ErrorHandler.getErrorMessage(err)));
+        });
+
+
+    },
+    description: 'Teacher Login',
     tags: ['api'],
     plugins: {
         'hapi-swagger': {
@@ -197,6 +245,22 @@ exports.logout = {
             let cookieOptions = request.server.configManager.get('web.cookieOptions');
             reply({ status: true }).header("Authorization", '')
                 .unstate('token', cookieOptions);
+        }).catch(err => {
+            console.log(err);
+            return reply(Boom.badRequest(ErrorHandler.getErrorMessage(err)));
+        })
+
+    },
+}
+exports.logoutTeacher = {
+    auth: 'jwt',
+    handler: function (request, reply) {
+        const sessionId = request.auth.credentials.id;
+        let auth = request.server.plugins['api-user'].auth;
+        auth.logout(sessionId).then((session) => {
+            let cookieOptions = request.server.configManager.get('web.cookieOptions');
+            reply({ status: true }).header("Authorization", '')
+                .unstate('tokenUser', cookieOptions);
         }).catch(err => {
             console.log(err);
             return reply(Boom.badRequest(ErrorHandler.getErrorMessage(err)));

@@ -1,15 +1,25 @@
 "use strict";
 
-angular.module('Auth', []).service('AuthService', [
-  '$http',
-  '$window',
-  function ($http, $window) {
+angular.module('Auth', ['toastr']).config(function(toastrConfig) {
+    angular.extend(toastrConfig, {
+      autoDismiss: false,
+      containerId: 'toast-container',
+      maxOpened: 0,    
+      newestOnTop: true,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: false,
+      preventOpenDuplicates: false,
+      timeOut: 2000,
+      target: 'body'
+    });
+  })
+  .service('AuthService', ['$http','$window', function ($http, $window) {
     return {
       register: function (data) {
         return $http.post($window.settings.services.userApi + '/api/user/register', data);
       },
-      login: function (data) {
-        return $http.post($window.settings.services.userApi + '/api/user/login', data);
+      loginTeacher: function (data) {
+        return $http.post($window.settings.services.userApi + '/api/user/loginTeacher', data);
       },
       forgot: function (data) {
         return $http.post($window.settings.services.userApi + '/api/user/forgot', data);
@@ -17,8 +27,8 @@ angular.module('Auth', []).service('AuthService', [
       account: function () {
         return $http.get($window.settings.services.userApi + '/api/user/account');
       },
-      logout: function () {
-        return $http.get($window.settings.services.userApi + '/api/user/logout');
+      logoutTeacher: function () {
+        return $http.get($window.settings.services.userApi + '/api/user/logoutTeacher');
       },
       updateAccount: function (data) {
         return $http.post($window.settings.services.userApi + '/api/user/updateprofile', data);
@@ -36,49 +46,61 @@ angular.module('Auth', []).service('AuthService', [
   }
 ]).controller('AuthController', [
   '$scope',
+  '$window',
   '$filter',
+  'toastr',
   'AuthService',
   '$cookies',
-  function ($scope, $filter, AuthService, $cookies) {
+  function ($scope, $window, $filter, toastr, AuthService, $cookies) {
+    //Register teacher
     $scope.register = function () {
       if ($scope.registerForm.$valid) {
         var data = {
           name: this.name,
           email: this.email,
+          rules: ['teacher'],
           password: this.password,
           cfpassword: this.cfpassword
         };
 
-        // console.log('Login:', data);
+        console.log('Login:', data);
         AuthService.register(data).then(function (res) {
           $scope.registerSuccess = true;
+          $scope.errors = null;
+          toastr.success('Register Information', 'Registration successful, please login.!');
           setTimeout(function(){
             window.location.href = '/login';
           }, 2000);
         }).catch(function (res) {
+          // console.log(res);
+          $scope.errors = [res.data.message];
+        });
+      }
+    };
+    $scope.loginTeacher = function () {
+      // if ($scope.loginForm.$valid) {
+        var data = $scope.user;
+        data.scope = 'teacher';
+
+        // console.log(data);
+        AuthService.loginTeacher(data).success(function (res) {
+          // $scope.loginSuccess = true;
+          // console.log(res.data.token);
+          // $cookies.put('token', res.data.token);
+          // window.location.href = '/';
           console.log(res);
+          if (res.tokenUser) {
+            $window.location.href = '/';
+          }
+          $scope.error = response.message;
+
+        }).error(function (res) {
           $scope.errors = [res.data.message];
         });
-      }
+      // }
     };
-    $scope.login = function () {
-      if ($scope.loginForm.$valid) {
-        var data = {
-          email: this.email,
-          password: this.password
-        };
-        AuthService.login(data).then(function (res) {
-          $scope.loginSuccess = true;
-          console.log(res.data.token);
-          $cookies.put('token', res.data.token);
-          window.location.href = '/';
-        }).catch(function (res) {
-          $scope.errors = [res.data.message];
-        });
-      }
-    };
-    $scope.logout = function () {
-      AuthService.logout().then(function (res) {
+    $scope.logoutTeacher = function () {
+      AuthService.logoutTeacher().then(function (res) {
         $cookies.put('token', '');
         window.location.href = '/';
       }).catch(function (res) {

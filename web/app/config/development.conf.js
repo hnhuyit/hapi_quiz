@@ -27,7 +27,8 @@ config.web = {
             'public/assets/lib/AdminLTE/dist/css/skins/skin-blue.min.css',
             'public/assets/lib/AdminLTE/plugins/select2/select2.min.css',
             'public/assets/lib/AdminLTE/dist/css/AdminLTE.min.css',
-            // 'app/modules/web-*/view/client/style/*.css',
+            'public/assets/lib/angular-toastr/dist/angular-toastr.min.css',
+            'app/modules/web-*/view/client/style/*.css',
             'public/assets/css/styles.css',
         ],
         js: [
@@ -38,6 +39,7 @@ config.web = {
             'public/assets/lib/angular/angular.min.js',
             'public/assets/lib/angular-cookies/angular-cookies.min.js',
             'public/assets/lib/socket.io-client/socket.io.js',
+            'public/assets/lib/angular-toastr/dist/angular-toastr.tpls.js',
             'app/modules/web-*/view/client/js/*.js',
             'public/assets/js/app.js',
         ]
