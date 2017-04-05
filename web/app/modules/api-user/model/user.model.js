@@ -67,7 +67,7 @@ var UserSchema = new Schema({
 			type: String,
 			enum: ['user', 'admin', 'student', 'teacher']
 		}],
-		default: ['user']
+		default: ['teacher']
 	},
     group_id: {
         type: Schema.ObjectId,
