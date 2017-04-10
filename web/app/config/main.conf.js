@@ -120,7 +120,7 @@ config.web = {
             url: '/error404' //404 URL
         },
         user: {
-            login: '/signin' // singin URL
+            login: '/login' // Login URL
         }
     },
     

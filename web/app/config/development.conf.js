@@ -66,7 +66,6 @@ config.web = {
             'public/assets/lib/angular/angular.min.js',
             'public/assets/lib/angular-resource/angular-resource.js',
             'public/assets/lib/angular-animate/angular-animate.js',
-            'public/assets/lib/angular-cookies/angular-cookies.min.js',
             'public/assets/lib/angular-ui-router/release/angular-ui-router.js',
             'public/assets/lib/angular-ui-utils/index.js',
             'public/assets/lib/angular-bootstrap/ui-bootstrap-tpls.js',
