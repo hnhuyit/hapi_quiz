@@ -13,18 +13,18 @@
             <li><a href="{{postListLink}}">News</a></li>
             <li><a href="{{aboutLink}}">About</a></li>
             <li><a href="{{contactLink}}">Contact</a></li>
+            {{#if credentials.uid}}
             <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                   <img src="/files/avatar.jpg" class="user-image" alt="User Image">
-                  <span class="hidden-xs">Huy Hoang</span>
+                  <span class="hidden-xs">{{credentials.name}}</span>
                 </a>
                 <ul class="dropdown-menu" data-ng-controller="AuthController">
-                {{#if credentials.uid}}
                     <!-- User image -->
                     <li class="user-header">
                         <img src="/files/avatar.jpg" class="img-circle" alt="User Image">
                         <p>
-                          Huy Hoang - Web Developer
+                          <span>{{credentials.name}}</span> - Web Developer
                         </p>
                     </li>
                     <!-- Menu Body -->
@@ -42,18 +42,18 @@
                     <!-- Menu Footer-->
                     <li class="user-footer">
                         <div class="pull-left">
-                          <a href="/account" class="btn btn-default btn-flat">Profile</a>
+                          <a href="/profile" class="btn btn-default btn-flat">Profile</a>
                         </div>
                         <div class="pull-right">
-                          <a data-ng-click="logoutTeacher()" class="btn btn-default btn-flat">Sign out</a>
+                          <a data-ng-click="logout()" class="btn btn-default btn-flat">Sign out</a>
                         </div>
                     </li>
-                {{else}}
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/login">Login</a></li>
-                {{/if}}
                 </ul>
             </li>
+            {{else}}
+              <li><a href="/register">Register</a></li>
+              <li><a href="/login">Login</a></li>
+            {{/if}}
         </ul>
       </div>
     </nav>

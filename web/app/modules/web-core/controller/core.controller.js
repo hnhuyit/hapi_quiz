@@ -100,11 +100,13 @@ exports.handleError = function (request, reply) {
 
 
     if (statusCode === 404) {
-        request.log(['error', 'notfound'], 'Resources is not be found');
+        // request.log(['error', 'notfound'], 'Resources is not be found');
+        console.log('Resources is not be found');
         return reply.redirect(notFoundUrl);
-    } else if (statusCode === 403) {
-        request.log(['error', 'permission'], 'You have not permission to access this page');
-        return reply.redirect(loginUrl);
+    } else if (statusCode === 403 || statusCode === 401) {
+        // request.log(['error', 'permission'], 'You have not permission to access this page');
+        console.log('You have not permission to access this page');
+        return reply.redirect('/login');
     } else {
         return reply.continue();
     }

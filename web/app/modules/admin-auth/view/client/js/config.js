@@ -2,7 +2,7 @@
 
 ApplicationConfiguration.registerModule('auth');
 
-angular.module('auth').config(['$stateProvider',
+angular.module('auth', ['toastr']).config(['$stateProvider',
 	function($stateProvider) {
 	}
 ]); 

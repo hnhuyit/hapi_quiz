@@ -21,6 +21,7 @@
     "glob": "^7.0.5",
     "h2o2": "^5.4.0",
     "handlebars": "^4.0.5",
+    "handlebars-helpers": "^0.8.2",
     "hapi": "^14.1.0",
     "hapi-auth-jwt2": "^7.0.1",
     "hapi-io": "^0.1.0",

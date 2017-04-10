@@ -18,8 +18,8 @@ angular.module('Auth', ['toastr']).config(function(toastrConfig) {
       register: function (data) {
         return $http.post($window.settings.services.userApi + '/api/user/register', data);
       },
-      loginTeacher: function (data) {
-        return $http.post($window.settings.services.userApi + '/api/user/loginTeacher', data);
+      login: function (data) {
+        return $http.post($window.settings.services.userApi + '/api/user/login', data);
       },
       forgot: function (data) {
         return $http.post($window.settings.services.userApi + '/api/user/forgot', data);
@@ -27,8 +27,8 @@ angular.module('Auth', ['toastr']).config(function(toastrConfig) {
       account: function () {
         return $http.get($window.settings.services.userApi + '/api/user/account');
       },
-      logoutTeacher: function () {
-        return $http.get($window.settings.services.userApi + '/api/user/logoutTeacher');
+      logout: function () {
+        return $http.get($window.settings.services.userApi + '/api/user/logout');
       },
       updateAccount: function (data) {
         return $http.post($window.settings.services.userApi + '/api/user/updateprofile', data);
@@ -63,7 +63,7 @@ angular.module('Auth', ['toastr']).config(function(toastrConfig) {
           cfpassword: this.cfpassword
         };
 
-        console.log('Login:', data);
+        // console.log('Register:', data);
         AuthService.register(data).then(function (res) {
           $scope.registerSuccess = true;
           $scope.errors = null;
@@ -73,37 +73,33 @@ angular.module('Auth', ['toastr']).config(function(toastrConfig) {
           }, 2000);
         }).catch(function (res) {
           // console.log(res);
-          $scope.errors = [res.data.message];
+          $scope.errors = res.data.message;
         });
       }
     };
-    $scope.loginTeacher = function () {
+    $scope.login = function () {
       // if ($scope.loginForm.$valid) {
         var data = $scope.user;
         data.scope = 'teacher';
-
-        // console.log(data);
-        AuthService.loginTeacher(data).success(function (res) {
-          // $scope.loginSuccess = true;
-          // console.log(res.data.token);
-          // $cookies.put('token', res.data.token);
-          // window.location.href = '/';
-          console.log(res);
-          if (res.tokenUser) {
-            $window.location.href = '/';
-          }
-          $scope.error = response.message;
-
+        AuthService.login(data).success(function (res) {
+          toastr.success( 'Login success', 'Login Information');
+          setTimeout(function(){
+            if (res.token) {
+              $window.location.href = '/';
+            }
+          }, 1000);
         }).error(function (res) {
-          $scope.errors = [res.data.message];
+          // console.log('res', res);
+          // $scope.errors = res.message; 
+          toastr.error(res.message, 'Login Information');
         });
       // }
     };
-    $scope.logoutTeacher = function () {
-      AuthService.logoutTeacher().then(function (res) {
+    $scope.logout = function () {
+      AuthService.logout().success(function (res) {
         $cookies.put('token', '');
         window.location.href = '/';
-      }).catch(function (res) {
+      }).error(function (res) {
         $scope.errors = [res.data.message];
       });
     };
@@ -112,6 +108,14 @@ angular.module('Auth', ['toastr']).config(function(toastrConfig) {
         $scope.user = res.data;
       }).catch(function (res) {
         $scope.errors = [res.data.message];
+      });
+    };
+    $scope.profile = function() {
+      AuthService.profile().then(function(res) {
+        $scope.user = res.data;
+        console.log(res);
+      }).catch(function(res) {
+        $scope.errors = res.data.message;
       });
     };
     $scope.updateMyAccount = function () {

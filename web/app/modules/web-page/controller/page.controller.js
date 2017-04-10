@@ -13,7 +13,7 @@ exports.about = {
                 title: page.title,
                 description: ''
             }
-            return reply.view('web-page/view/about', { page: page, meta: meta });
+            return reply.view('web-page/view/default', { page: page, meta: meta });
         }).catch(function(err) {
             request.log(['error'], err);
             return reply.continue();

@@ -12,9 +12,37 @@ exports.register = function (server, options, next) {
     });
     server.route({
         method: 'GET',
-        path: '/subject/{slug}',
+        path: '/subject/{id}',
         config: SubjectsController.view
     });
+    // server.route({
+    //     method: 'GET',
+    //     path: '/subject/add',
+    //     config: SubjectsController.add,
+    // });
+    // server.route({
+    //     method: 'POST',
+    //     path: '/subject',
+    //     config: SubjectsController.create,
+
+    // });
+    // server.route({
+    //     method: ['GET'],
+    //     path: '/subject/{id}/edit',
+    //     config: SubjectsController.edit,
+    // });
+    // server.route({
+    //     method: ['PUT', 'POST'],
+    //     path: '/subject/{id}/edit',
+    //     config: SubjectsController.update,
+
+    // });
+    // server.route({
+    //     method: ['DELETE'],
+    //     path: '/subject/{id}',
+    //     config: SubjectsController.delete
+
+    // });
     next();
 };
 

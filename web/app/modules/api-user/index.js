@@ -21,23 +21,13 @@ exports.register = function (server, options, next) {
     });
     server.route({
         method: 'POST',
-        path: '/user/loginTeacher',
-        config: AuthController.loginTeacher,
+        path: '/user/register',
+        config: AuthController.register,
     });
     server.route({
         method: ['GET'],
         path: '/user/logout',
         config: AuthController.logout,
-    });
-    server.route({
-        method: ['GET'],
-        path: '/user/logoutTeacher',
-        config: AuthController.logoutTeacher,
-    });
-    server.route({
-        method: ['POST'],
-        path: '/user/register',
-        config: AuthController.register,
     });
     server.route({
         method: ['GET'],
@@ -65,10 +55,10 @@ exports.register = function (server, options, next) {
 
     server.route({
         method: ['GET'],
-        path: '/user/profile/{id}',
+        path: '/user/profile',
         config: AuthController.profile,
-        
     });
+    
     server.route({
         method: ['GET'],
         path: '/user/account',

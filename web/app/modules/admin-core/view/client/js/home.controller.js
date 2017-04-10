@@ -5,7 +5,7 @@ angular.module('core').controller('HomeController', ['$scope', '$location', 'Aut
     function($scope, $location, Authentication) {
         // This provides Authentication context.
         $scope.authentication = Authentication;
-        console.log(Authentication);
+        // console.log(Authentication);
         $scope.checkAuth = function() {
             if (!Authentication.user.name) {
                 $location.path('signin');

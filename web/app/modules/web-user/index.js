@@ -25,6 +25,12 @@ exports.register = function (server, options, next) {
     });
     server.route({
         method: 'GET',
+        path: '/profile',
+        config: UserController.profile
+        
+    });
+    server.route({
+        method: 'GET',
         path: '/changepassword',
         config: UserController.changepassword
         

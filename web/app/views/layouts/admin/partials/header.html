@@ -42,7 +42,7 @@
                 <img src="/files/avatar.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Huy Hoang - Web Developer
+                  <span data-ng-bind="authentication.user.name"></span> - Web Developer
                   <!-- <small>Member since Nov. 2012</small> -->
                 </p>
               </li>
@@ -65,7 +65,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="#" data-ng-click="viewProfile(authentication.user.id)" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a data-ng-click="signout()" class="btn btn-default btn-flat">Sign out</a>

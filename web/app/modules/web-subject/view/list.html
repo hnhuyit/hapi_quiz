@@ -1,19 +1,111 @@
-<div class="page-header">
-     <h1>List Subjects</h1> 
-</div>
-<div class="row row-offcanvas row-offcanvas-right">
-    <div class="col-xs-12 col-sm-9">
-        {{#each items}}
-        <div class="media">
-            <div class="media-body">
-                <h4 class="media-heading">{{name}}</h4>
-                 <p><a href="/subject/{{slug}}">View detail»</a></p>
+<section>
+    <section class="content-header">
+        <h1>{{meta.controller}}</h1>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">{{meta.action}}</h3>
+                        <div class="pull-right">
+                            <a class="btn btn-block btn-primary" href="/{{meta.context}}/add">New</a>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="box-tools">
+                            <div class="input-group" style="width: 150px;">
+                                <input type="text" name="query" class="form-control input-sm pull-right" placeholder="Search" />
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>&nbsp;</div>
+                        <table id="table-list" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    
+                                    <th>Name</th>
+                                    
+                                    <th>Desc</th>
+                                    
+                                    <!-- <th>User Id</th> -->
+                                    
+                                    <!-- <th>Slug</th> -->
+                                    
+                                    <!-- <th>Status</th> -->
+                                    
+                                    <th>Created</th>
+                                    
+                                    <th>Modified</th>
+                                    
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {{#each items}}
+                                <tr>
+                                    <td><a href="subject/{{id}}">{{_id}}</a></td>
+                                    
+                                    
+                                    <td><a href="subject/{{id}}">{{name}}</a></td>
+                                    
+                                    
+                                    
+                                    <td>{{desc}}</td>
+                                    
+                                    
+                                    
+                                    <!-- <td>{{user_id}}</td> -->
+                                    
+                                    
+                                    
+                                    <!-- <td>{{slug}}</td> -->
+                                    
+                                    
+                                        
+                                    <!-- <td>{{status}}</td> -->
+                                    
+                                    
+                                    
+                                    <td>{{created}}</td>
+                                    
+                                    
+                                    
+                                    <td>{{modified}}</td>
+                                    
+                                      
+                                    <td>
+                                        <a href="subject/{{_id}}/edit" title="Edit"><i class="glyphicon glyphicon-edit"></i></a> &nbsp; &nbsp;
+                                        <a href="subject/{{_id}}" title="Delete">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+
+                        {{paginator}}
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        {{#if_neq status '1'}}
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="alert alert-warning text-center">
+                    There is no item found, why don't you <a href="subject/create">create one</a>?
+                </div>
             </div>
         </div>
-        {{/each}} {{{paginator}}}
-    </div>
-    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-       
-    </div>
-
-</div>
+        {{/if_neq}}
+    </section>
+</section>
